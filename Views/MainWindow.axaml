@@ -1,0 +1,242 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vm="using:ColorTemplate.ViewModels"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:ui="using:FluentAvalonia.UI.Controls"
+        xmlns:avlnconv="clr-namespace:Avalonia.Markup.Xaml.Converters;assembly=Avalonia.Markup.Xaml"
+        xmlns:converter="using:ColorTemplate.Converters"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        Width="1200"
+        x:Class="ColorTemplate.Views.MainWindow"
+        x:DataType="vm:MainWindowViewModel"
+        Icon="/Assets/avalonia-logo.ico"
+        Title="ColorTemplate">
+
+
+  <Window.Resources>
+    <avlnconv:ColorToBrushConverter x:Key="ToBrushConverter" />
+    <converter:ColorStringConverter x:Key="ColorStringConverter" />
+  </Window.Resources>
+  
+  
+    <Design.DataContext>
+        <!-- This only sets the DataContext for the previewer in an IDE,
+             to set the actual DataContext for runtime, set the DataContext property in code (look at App.axaml.cs) -->
+        <vm:MainWindowViewModel/>
+    </Design.DataContext>
+
+    <Grid RowDefinitions="Auto, *">
+      <Border Grid.Row="0" Height="{OnPlatform 0, Windows=30}">
+        <TextBlock Text="{OnPlatform '', Windows='{Binding Title, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}'}"
+                   VerticalAlignment="Center"
+                   Margin="{OnPlatform '0', Windows='10 0'}" />
+      </Border>
+
+      <DockPanel Grid.Row="1">
+        <StackPanel DockPanel.Dock="Top">
+          <StackPanel Orientation="Horizontal">
+            <ui:FAComboBox Width="400"
+                           Margin="10"
+                           DisplayMemberBinding="{Binding DisplayName, DataType=vm:PageEntry}"
+                           ItemsSource="{Binding Items}"
+                           IsEditable="True"
+                           IsTextSearchEnabled="True"
+                           SelectedItem="{Binding SelectedItem}" />
+            <Button Content="+"
+                    Click="ShowAddPageDialogCommand" />
+          </StackPanel>
+          <TextBlock Margin="10"
+                     FontSize="15"
+                     Text="{Binding SelectedItem.Description}" />
+        </StackPanel>
+
+        <Button Width="200"
+                HorizontalAlignment="Center"
+                Margin="20"
+                DockPanel.Dock="Bottom"
+                Content="Add new"
+                Click="ShowAddColorDialogCommand"/>
+
+
+        <ui:TaskDialog Name="NewColorDialog"
+                       Title="ColorTemplate"
+                       Header="New Colors">
+          
+          <ui:TaskDialog.Content>
+            <StackPanel>
+              <TextBox Text="#000000" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Margin="10">
+                <TextBox.InnerLeftContent>
+                  <ui:ColorPickerButton Name="PickerButton0" 
+                                        Margin="2, 0, 0, 2"
+                                        ShowAcceptDismissButtons="False" 
+                                        Color="{Binding Text, RelativeSource={RelativeSource FindAncestor, AncestorType=TextBox}, Converter={StaticResource ColorStringConverter}, Mode=TwoWay}" />
+                </TextBox.InnerLeftContent>
+              </TextBox>
+              <TextBox Text="#000000" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Margin="10">
+                <TextBox.InnerLeftContent>
+                  <ui:ColorPickerButton Name="PickerButton1" 
+                                        Margin="2, 0, 0, 2"
+                                        ShowAcceptDismissButtons="False" 
+                                        Color="{Binding Text, RelativeSource={RelativeSource FindAncestor, AncestorType=TextBox}, Converter={StaticResource ColorStringConverter}, Mode=TwoWay}" />
+                </TextBox.InnerLeftContent>
+              </TextBox>
+              <TextBox Text="#000000" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Margin="10">
+                <TextBox.InnerLeftContent>
+                  <ui:ColorPickerButton Name="PickerButton2" 
+                                        Margin="2, 0, 0, 2"
+                                        ShowAcceptDismissButtons="False" 
+                                        Color="{Binding Text, RelativeSource={RelativeSource FindAncestor, AncestorType=TextBox}, Converter={StaticResource ColorStringConverter}, Mode=TwoWay}" />
+                </TextBox.InnerLeftContent>
+              </TextBox>
+              <TextBox Text="#000000" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Margin="10">
+                <TextBox.InnerLeftContent>
+                  <ui:ColorPickerButton Name="PickerButton3" 
+                                        Margin="2, 0, 0, 2"
+                                        ShowAcceptDismissButtons="False" 
+                                        Color="{Binding Text, RelativeSource={RelativeSource FindAncestor, AncestorType=TextBox}, Converter={StaticResource ColorStringConverter}, Mode=TwoWay}" />
+                </TextBox.InnerLeftContent>
+              </TextBox>
+              <TextBox Text="#000000" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Margin="10">
+                <TextBox.InnerLeftContent>
+                  <ui:ColorPickerButton Name="PickerButton4" 
+                                        Margin="2, 0, 0, 2"
+                                        ShowAcceptDismissButtons="False" 
+                                        Color="{Binding Text, RelativeSource={RelativeSource FindAncestor, AncestorType=TextBox}, Converter={StaticResource ColorStringConverter}, Mode=TwoWay}" />
+                </TextBox.InnerLeftContent>
+              </TextBox>
+              <TextBox Text="#000000" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Margin="10">
+                <TextBox.InnerLeftContent>
+                  <ui:ColorPickerButton Name="PickerButton5" 
+                                        Margin="2, 0, 0, 2"
+                                        ShowAcceptDismissButtons="False" 
+                                        Color="{Binding Text, RelativeSource={RelativeSource FindAncestor, AncestorType=TextBox}, Converter={StaticResource ColorStringConverter}, Mode=TwoWay}" />
+                </TextBox.InnerLeftContent>
+              </TextBox>
+            </StackPanel>
+          </ui:TaskDialog.Content>
+
+          <ui:TaskDialog.Buttons >
+            <ui:TaskDialogButton Text="OK" DialogResult="OK" Click="AddColorCommand" />
+            <ui:TaskDialogButton Text="Cancel" DialogResult="Cancel" />
+          </ui:TaskDialog.Buttons>
+          
+        </ui:TaskDialog>
+
+        
+        <ui:TaskDialog Name="NewPageDialog"
+                       Title="ColorTemplate"
+                       Header="New Page">
+
+          <ui:TaskDialog.Content>
+            <StackPanel>
+              <TextBox Name="NewPageName" Watermark="Name" Margin="10" />
+              <TextBox Name="NewPageDescription" Watermark="Description" Margin="10" />
+            </StackPanel>
+          </ui:TaskDialog.Content>
+
+          <ui:TaskDialog.Buttons >
+            <ui:TaskDialogButton Text="OK" DialogResult="OK" Click="AddPageCommand" />
+            <ui:TaskDialogButton Text="Cancel" DialogResult="Cancel" />
+          </ui:TaskDialog.Buttons>
+
+        </ui:TaskDialog>
+        
+
+        <ScrollViewer>
+          <ItemsControl ItemsSource="{Binding SelectedItem.ColorSet}"
+                        Background="Transparent">
+            <ItemsControl.ItemsPanel>
+              <ItemsPanelTemplate>
+                <WrapPanel />
+              </ItemsPanelTemplate>
+            </ItemsControl.ItemsPanel>
+
+            <ItemsControl.ItemTemplate>
+              <DataTemplate>
+                <StackPanel Orientation="Horizontal" Margin="15">
+                  <Border Width="60"
+                          Height="60"
+                          PointerPressed="OnPointerPressed"
+                          Background="{Binding Color_0.color, Converter={StaticResource ToBrushConverter}}">
+                    <SelectableTextBlock Text="{Binding Color_0_Text}"
+                                         HorizontalAlignment="Center"
+                                         VerticalAlignment="Bottom"
+                                         FontSize="12"
+                                         Foreground="{Binding Color_0.color, Converter={x:Static converter:FuncConverters.BackgroundColorToBrushConverter}}" />
+                  </Border>
+                  <Border Width="60"
+                          Height="60"
+                          PointerPressed="OnPointerPressed"
+                          Background="{Binding Color_1.color, Converter={StaticResource ToBrushConverter}}">
+                    <SelectableTextBlock Text="{Binding Color_1_Text}"
+                                         HorizontalAlignment="Center"
+                                         VerticalAlignment="Bottom"
+                                         FontSize="12"
+                                         Foreground="{Binding Color_1.color, Converter={x:Static converter:FuncConverters.BackgroundColorToBrushConverter}}" />
+                  </Border>
+                  <Border Width="60"
+                          Height="60"
+                          PointerPressed="OnPointerPressed"
+                          Background="{Binding Color_2.color, Converter={StaticResource ToBrushConverter}}">
+                    <SelectableTextBlock Text="{Binding Color_2_Text}"
+                                         HorizontalAlignment="Center"
+                                         VerticalAlignment="Bottom"
+                                         FontSize="12"
+                                         Foreground="{Binding Color_2.color, Converter={x:Static converter:FuncConverters.BackgroundColorToBrushConverter}}" />
+                  </Border>
+                  <Border Width="60"
+                          Height="60"
+                          PointerPressed="OnPointerPressed"
+                          Background="{Binding Color_3.color, Converter={StaticResource ToBrushConverter}}">
+                    <SelectableTextBlock Text="{Binding Color_3_Text}"
+                                         HorizontalAlignment="Center"
+                                         VerticalAlignment="Bottom"
+                                         FontSize="12"
+                                         Foreground="{Binding Color_3.color, Converter={x:Static converter:FuncConverters.BackgroundColorToBrushConverter}}" />
+                  </Border>
+                  <Border Width="60"
+                          Height="60"
+                          PointerPressed="OnPointerPressed"
+                          Background="{Binding Color_4.color, Converter={StaticResource ToBrushConverter}}">
+                    <SelectableTextBlock Text="{Binding Color_4_Text}"
+                                         HorizontalAlignment="Center"
+                                         VerticalAlignment="Bottom"
+                                         FontSize="12"
+                                         Foreground="{Binding Color_4.color, Converter={x:Static converter:FuncConverters.BackgroundColorToBrushConverter}}" />
+                  </Border>
+                  <Border Width="60"
+                          Height="60"
+                          PointerPressed="OnPointerPressed"
+                          Background="{Binding Color_5.color, Converter={StaticResource ToBrushConverter}}">
+                    <SelectableTextBlock Text="{Binding Color_5_Text}"
+                                         HorizontalAlignment="Center"
+                                         VerticalAlignment="Bottom"
+                                         FontSize="12"
+                                         Foreground="{Binding Color_5.color, Converter={x:Static converter:FuncConverters.BackgroundColorToBrushConverter}}" />
+                  </Border>
+                </StackPanel>
+            
+              </DataTemplate>
+            </ItemsControl.ItemTemplate>
+          </ItemsControl>
+        </ScrollViewer>
+        <Canvas Width="0">
+          <Border Name="CopyAlert"
+                  Background="#FF333333"
+                  Width="135"
+                  BorderBrush="#FF4A4A4A"
+                  BorderThickness="1"
+                  Canvas.Right="0"
+                  Canvas.Bottom="10"
+                  CornerRadius="5"
+                  IsVisible="false">
+            <TextBlock Name="AlertText"
+                       Foreground="White"
+                       Margin="10"/>
+          </Border>
+        </Canvas>
+      </DockPanel>
+    </Grid>
+
+</Window>
