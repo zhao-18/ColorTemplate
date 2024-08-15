@@ -86,9 +86,11 @@ public partial class MainWindow : AppWindow
         param[4] = new ColorWrapper(PickerButton4.Color ?? new Color(255, 0, 0, 0));
         param[5] = new ColorWrapper(PickerButton5.Color ?? new Color(255, 0, 0, 0));
 
+        string description = Description.Text ?? string.Empty;
+
         if (DataContext is not MainWindowViewModel vm) return;
 
-        vm.AddColor(param);
+        vm.AddColor(param, description);
     }
 
     public void AddPageCommand(TaskDialogButton sender, EventArgs e)

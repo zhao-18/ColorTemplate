@@ -22,7 +22,7 @@ namespace ColorTemplate.Models
 
         public ColorWrapper(byte r, byte g, byte b) : this(255, r, g, b) { }
 
-        public ColorWrapper(Color color) : this(color.A, color.R, color.B, color.G) { }
+        public ColorWrapper(Color color) : this(color.A, color.R, color.G, color.B) { }
 
         public byte A { get; set; }
         public byte R { get; set; }
@@ -34,5 +34,9 @@ namespace ColorTemplate.Models
             get => Color.FromArgb(A, R, G, B);
         }
 
+        public override string ToString()
+        {
+            return $"#{R:X2}{G:X2}{B:X2}";
+        }
     }
 }

@@ -51,9 +51,9 @@ public partial class MainWindowViewModel : ViewModelBase
         }
     }
 
-    public void AddColor(ColorWrapper[] Param)
+    public void AddColor(ColorWrapper[] Param, string description)
     {
-        SelectedItem.ColorSet.Add(new ColorSet(Param));
+        SelectedItem.ColorSet.Add(new ColorSet(Param, description));
         Task.Run(async () => await SavePageEntryAsync(SelectedItem));
     }
 

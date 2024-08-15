@@ -113,6 +113,7 @@
                                         Color="{Binding Text, RelativeSource={RelativeSource FindAncestor, AncestorType=TextBox}, Converter={StaticResource ColorStringConverter}, Mode=TwoWay}" />
                 </TextBox.InnerLeftContent>
               </TextBox>
+              <TextBox Name="Description" Watermark="Description" />
             </StackPanel>
           </ui:TaskDialog.Content>
 
@@ -154,67 +155,73 @@
 
             <ItemsControl.ItemTemplate>
               <DataTemplate>
-                <StackPanel Orientation="Horizontal" Margin="15">
-                  <Border Width="60"
-                          Height="60"
-                          PointerPressed="OnPointerPressed"
-                          Background="{Binding Color_0.color, Converter={StaticResource ToBrushConverter}}">
-                    <SelectableTextBlock Text="{Binding Color_0_Text}"
-                                         HorizontalAlignment="Center"
-                                         VerticalAlignment="Bottom"
-                                         FontSize="12"
-                                         Foreground="{Binding Color_0.color, Converter={x:Static converter:FuncConverters.BackgroundColorToBrushConverter}}" />
-                  </Border>
-                  <Border Width="60"
-                          Height="60"
-                          PointerPressed="OnPointerPressed"
-                          Background="{Binding Color_1.color, Converter={StaticResource ToBrushConverter}}">
-                    <SelectableTextBlock Text="{Binding Color_1_Text}"
-                                         HorizontalAlignment="Center"
-                                         VerticalAlignment="Bottom"
-                                         FontSize="12"
-                                         Foreground="{Binding Color_1.color, Converter={x:Static converter:FuncConverters.BackgroundColorToBrushConverter}}" />
-                  </Border>
-                  <Border Width="60"
-                          Height="60"
-                          PointerPressed="OnPointerPressed"
-                          Background="{Binding Color_2.color, Converter={StaticResource ToBrushConverter}}">
-                    <SelectableTextBlock Text="{Binding Color_2_Text}"
-                                         HorizontalAlignment="Center"
-                                         VerticalAlignment="Bottom"
-                                         FontSize="12"
-                                         Foreground="{Binding Color_2.color, Converter={x:Static converter:FuncConverters.BackgroundColorToBrushConverter}}" />
-                  </Border>
-                  <Border Width="60"
-                          Height="60"
-                          PointerPressed="OnPointerPressed"
-                          Background="{Binding Color_3.color, Converter={StaticResource ToBrushConverter}}">
-                    <SelectableTextBlock Text="{Binding Color_3_Text}"
-                                         HorizontalAlignment="Center"
-                                         VerticalAlignment="Bottom"
-                                         FontSize="12"
-                                         Foreground="{Binding Color_3.color, Converter={x:Static converter:FuncConverters.BackgroundColorToBrushConverter}}" />
-                  </Border>
-                  <Border Width="60"
-                          Height="60"
-                          PointerPressed="OnPointerPressed"
-                          Background="{Binding Color_4.color, Converter={StaticResource ToBrushConverter}}">
-                    <SelectableTextBlock Text="{Binding Color_4_Text}"
-                                         HorizontalAlignment="Center"
-                                         VerticalAlignment="Bottom"
-                                         FontSize="12"
-                                         Foreground="{Binding Color_4.color, Converter={x:Static converter:FuncConverters.BackgroundColorToBrushConverter}}" />
-                  </Border>
-                  <Border Width="60"
-                          Height="60"
-                          PointerPressed="OnPointerPressed"
-                          Background="{Binding Color_5.color, Converter={StaticResource ToBrushConverter}}">
-                    <SelectableTextBlock Text="{Binding Color_5_Text}"
-                                         HorizontalAlignment="Center"
-                                         VerticalAlignment="Bottom"
-                                         FontSize="12"
-                                         Foreground="{Binding Color_5.color, Converter={x:Static converter:FuncConverters.BackgroundColorToBrushConverter}}" />
-                  </Border>
+                <StackPanel Orientation="Vertical" Margin="15">
+                  
+                  <StackPanel Orientation="Horizontal">
+                    <Border Width="60"
+                            Height="60"
+                            PointerPressed="OnPointerPressed"
+                            Background="{Binding Color_0.color, Converter={StaticResource ToBrushConverter}}">
+                      <SelectableTextBlock Text="{Binding Color_0}"
+                                           HorizontalAlignment="Center"
+                                           VerticalAlignment="Bottom"
+                                           FontSize="12"
+                                           Foreground="{Binding Color_0.color, Converter={x:Static converter:FuncConverters.BackgroundColorToBrushConverter}}" />
+                    </Border>
+                    <Border Width="60"
+                            Height="60"
+                            PointerPressed="OnPointerPressed"
+                            Background="{Binding Color_1.color, Converter={StaticResource ToBrushConverter}}">
+                      <SelectableTextBlock Text="{Binding Color_1}"
+                                           HorizontalAlignment="Center"
+                                           VerticalAlignment="Bottom"
+                                           FontSize="12"
+                                           Foreground="{Binding Color_1.color, Converter={x:Static converter:FuncConverters.BackgroundColorToBrushConverter}}" />
+                    </Border>
+                    <Border Width="60"
+                            Height="60"
+                            PointerPressed="OnPointerPressed"
+                            Background="{Binding Color_2.color, Converter={StaticResource ToBrushConverter}}">
+                      <SelectableTextBlock Text="{Binding Color_2}"
+                                           HorizontalAlignment="Center"
+                                           VerticalAlignment="Bottom"
+                                           FontSize="12"
+                                           Foreground="{Binding Color_2.color, Converter={x:Static converter:FuncConverters.BackgroundColorToBrushConverter}}" />
+                    </Border>
+                    <Border Width="60"
+                            Height="60"
+                            PointerPressed="OnPointerPressed"
+                            Background="{Binding Color_3.color, Converter={StaticResource ToBrushConverter}}">
+                      <SelectableTextBlock Text="{Binding Color_3}"
+                                           HorizontalAlignment="Center"
+                                           VerticalAlignment="Bottom"
+                                           FontSize="12"
+                                           Foreground="{Binding Color_3.color, Converter={x:Static converter:FuncConverters.BackgroundColorToBrushConverter}}" />
+                    </Border>
+                    <Border Width="60"
+                            Height="60"
+                            PointerPressed="OnPointerPressed"
+                            Background="{Binding Color_4.color, Converter={StaticResource ToBrushConverter}}">
+                      <SelectableTextBlock Text="{Binding Color_4}"
+                                           HorizontalAlignment="Center"
+                                           VerticalAlignment="Bottom"
+                                           FontSize="12"
+                                           Foreground="{Binding Color_4.color, Converter={x:Static converter:FuncConverters.BackgroundColorToBrushConverter}}" />
+                    </Border>
+                    <Border Width="60"
+                            Height="60"
+                            PointerPressed="OnPointerPressed"
+                            Background="{Binding Color_5.color, Converter={StaticResource ToBrushConverter}}">
+                      <SelectableTextBlock Text="{Binding Color_5}"
+                                           HorizontalAlignment="Center"
+                                           VerticalAlignment="Bottom"
+                                           FontSize="12"
+                                           Foreground="{Binding Color_5.color, Converter={x:Static converter:FuncConverters.BackgroundColorToBrushConverter}}" />
+                    </Border>
+                  </StackPanel>
+
+
+                  <TextBlock Text="{Binding Description}" FontSize="15" />
                 </StackPanel>
             
               </DataTemplate>
