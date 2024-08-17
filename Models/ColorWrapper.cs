@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
 namespace ColorTemplate.Models
@@ -29,6 +30,7 @@ namespace ColorTemplate.Models
         public byte G { get; set; }
         public byte B { get; set; }
 
+        [JsonIgnore]
         public Color color
         {
             get => Color.FromArgb(A, R, G, B);
