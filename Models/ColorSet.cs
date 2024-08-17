@@ -14,9 +14,9 @@ namespace ColorTemplate.Models
 
         public ColorSet(ColorWrapper[] colors, string description = "")
         {
-            if (colors.Count() != 6)
+            if (colors.Count() != 5)
             {
-                throw new ArgumentOutOfRangeException("Must feed array of size 6 into ColorSet ctor");
+                throw new ArgumentOutOfRangeException("Must feed array of size 5 into ColorSet ctor");
             }
 
             Color_0 = colors[0];
@@ -24,7 +24,6 @@ namespace ColorTemplate.Models
             Color_2 = colors[2];
             Color_3 = colors[3];
             Color_4 = colors[4];
-            Color_5 = colors[5];
 
             Description = description;
         }
@@ -40,7 +39,5 @@ namespace ColorTemplate.Models
         public ColorWrapper Color_3 { set; get; } = new ColorWrapper(120, 120, 120);
 
         public ColorWrapper Color_4 { set; get; } = new ColorWrapper(160, 160, 160);
-
-        public ColorWrapper Color_5 { set; get; } = new ColorWrapper(200, 200, 200);
     }
 }

@@ -77,14 +77,13 @@ public partial class MainWindow : AppWindow
 
     public void AddColorCommand(TaskDialogButton sender, EventArgs e)
     {
-        ColorWrapper[] param = new ColorWrapper[6];
+        ColorWrapper[] param = new ColorWrapper[5];
 
         param[0] = new ColorWrapper(PickerButton0.Color ?? new Color(255, 0, 0, 0));
         param[1] = new ColorWrapper(PickerButton1.Color ?? new Color(255, 0, 0, 0));
         param[2] = new ColorWrapper(PickerButton2.Color ?? new Color(255, 0, 0, 0));
         param[3] = new ColorWrapper(PickerButton3.Color ?? new Color(255, 0, 0, 0));
         param[4] = new ColorWrapper(PickerButton4.Color ?? new Color(255, 0, 0, 0));
-        param[5] = new ColorWrapper(PickerButton5.Color ?? new Color(255, 0, 0, 0));
 
         string description = Description.Text ?? string.Empty;
 

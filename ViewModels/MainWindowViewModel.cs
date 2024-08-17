@@ -21,7 +21,7 @@ public partial class MainWindowViewModel : ViewModelBase
 {
     public MainWindowViewModel()
     {
-        //AddCustom();
+
         RxApp.MainThreadScheduler.Schedule(LoadPagesAsync);
         selectedItem = new PageEntry();
     }

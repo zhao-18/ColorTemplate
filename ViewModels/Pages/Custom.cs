@@ -22,7 +22,6 @@ public partial class MainWindowViewModel : ViewModelBase
                 new ObservableCollection<ColorSet>
                 {
                     new ColorSet([
-                        new ColorWrapper(10, 10, 10),
                         new ColorWrapper(40, 40, 40),
                         new ColorWrapper(70, 70, 70),
                         new ColorWrapper(100, 100, 100),
@@ -31,7 +30,6 @@ public partial class MainWindowViewModel : ViewModelBase
                     ], "Gradetion 1"),
 
                     new ColorSet([
-                        new ColorWrapper(10, 10, 10),
                         new ColorWrapper(50, 50, 50),
                         new ColorWrapper(90, 90, 90),
                         new ColorWrapper(130, 130, 130),
@@ -40,7 +38,6 @@ public partial class MainWindowViewModel : ViewModelBase
                     ], "Gradetion 2"),
 
                     new ColorSet([
-                        new ColorWrapper(8, 8, 8)
                         new ColorWrapper(32, 32, 32),
                         new ColorWrapper(51, 51, 51),
                         new ColorWrapper(74, 74, 74),
@@ -50,11 +47,10 @@ public partial class MainWindowViewModel : ViewModelBase
 
                     new ColorSet([
                         new ColorWrapper(255, 0, 220),
-                        new ColorWrapper(255, 0, 220),
+                        new ColorWrapper(1, 0, 1),
                         new ColorWrapper(255, 0, 220),
                         new ColorWrapper(1, 0, 1),
-                        new ColorWrapper(1, 0, 1),
-                        new ColorWrapper(1, 0, 1)
+                        new ColorWrapper(255, 0, 220)
                     ], "Texture not found color")
                 }
             )

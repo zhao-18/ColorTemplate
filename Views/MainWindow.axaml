@@ -7,7 +7,7 @@
         xmlns:avlnconv="clr-namespace:Avalonia.Markup.Xaml.Converters;assembly=Avalonia.Markup.Xaml"
         xmlns:converter="using:ColorTemplate.Converters"
         mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
-        Width="1200"
+        Width="1000"
         x:Class="ColorTemplate.Views.MainWindow"
         x:DataType="vm:MainWindowViewModel"
         Icon="/Assets/avalonia-logo.ico"
@@ -100,14 +100,6 @@
               <TextBox Text="#000000" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Margin="10">
                 <TextBox.InnerLeftContent>
                   <ui:ColorPickerButton Name="PickerButton4" 
-                                        Margin="2, 0, 0, 2"
-                                        ShowAcceptDismissButtons="False" 
-                                        Color="{Binding Text, RelativeSource={RelativeSource FindAncestor, AncestorType=TextBox}, Converter={StaticResource ColorStringConverter}, Mode=TwoWay}" />
-                </TextBox.InnerLeftContent>
-              </TextBox>
-              <TextBox Text="#000000" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Margin="10">
-                <TextBox.InnerLeftContent>
-                  <ui:ColorPickerButton Name="PickerButton5" 
                                         Margin="2, 0, 0, 2"
                                         ShowAcceptDismissButtons="False" 
                                         Color="{Binding Text, RelativeSource={RelativeSource FindAncestor, AncestorType=TextBox}, Converter={StaticResource ColorStringConverter}, Mode=TwoWay}" />
@@ -207,16 +199,6 @@
                                            VerticalAlignment="Bottom"
                                            FontSize="12"
                                            Foreground="{Binding Color_4.color, Converter={x:Static converter:FuncConverters.BackgroundColorToBrushConverter}}" />
-                    </Border>
-                    <Border Width="60"
-                            Height="60"
-                            PointerPressed="OnPointerPressed"
-                            Background="{Binding Color_5.color, Converter={StaticResource ToBrushConverter}}">
-                      <SelectableTextBlock Text="{Binding Color_5}"
-                                           HorizontalAlignment="Center"
-                                           VerticalAlignment="Bottom"
-                                           FontSize="12"
-                                           Foreground="{Binding Color_5.color, Converter={x:Static converter:FuncConverters.BackgroundColorToBrushConverter}}" />
                     </Border>
                   </StackPanel>
 
